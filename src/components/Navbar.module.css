@@ -1,0 +1,94 @@
+.navbar {
+  width: 100%;
+  height: 80px;
+  background-color: var(--white);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  position: sticky; /* Fixa no topo ao rolar */
+  top: 0;
+  z-index: 100;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px; /* Limita a largura em telas grandes */
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 20px;
+  letter-spacing: 3px;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--axion-dark);
+}
+
+.links {
+  display: flex;
+  gap: 40px;
+}
+
+/* Estilo padrão do link */
+.link {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--axion-gray);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: var(--axion-orange);
+}
+
+/* Estilo do link ATIVO (Negrito e Escuro) */
+.activeLink {
+  composes: link; /* Herda tudo de .link */
+  color: var(--axion-dark);
+  font-weight: 800;
+  position: relative;
+}
+
+/* Opcional: Tracinho embaixo do ativo (estilo Axion) */
+.activeLink::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--axion-purple), var(--axion-orange));
+}
+
+.logoutButton {
+  background: none;
+  border: none;
+  color: var(--axion-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.logoutButton:hover {
+  opacity: 1;
+  color: var(--axion-orange);
+}
+
+/* Esconde o texto "Sair" em telas pequenas */
+@media (max-width: 600px) {
+  .logoutText {
+    display: none;
+  }
+  .links {
+    gap: 16px;
+  }
+}

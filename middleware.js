@@ -1,6 +1,17 @@
 import { NextResponse } from 'next/server';
 
 export function middleware(request) {
+  // Retorna next() direto, sem verificar cookies ou redirecionar
+  return NextResponse.next();
+}
+
+export const config = {
+  matcher: ['/', '/people/:path*', '/food/:path*', '/places/:path*'],
+};
+
+/* import { NextResponse } from 'next/server';
+
+export function middleware(request) {
   const token = request.cookies.get('axion_token')?.value;
 
   //URL que o usuário está tentando acessar
@@ -26,4 +37,4 @@ export function middleware(request) {
 //Rotas vigiadas pelo middleware
 export const config = {
   matcher: ['/', '/people/:path*', '/food/:path*', '/places/:path*'],
-};
+}; */

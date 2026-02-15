@@ -1,0 +1,42 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--axion-dark);
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  padding: 12px;
+  padding-right: 40px; /* Espaço para o ícone */
+  border: 1px solid #E0E0E0;
+  border-radius: var(--radius);
+  font-size: 14px;
+  color: var(--axion-dark);
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  border-color: var(--axion-purple);
+}
+
+.icon {
+  position: absolute;
+  right: 12px;
+  color: var(--axion-gray);
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
