@@ -4,6 +4,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 8px;
+  font-weight: 600;
 }
 
 .separator {
@@ -12,4 +13,11 @@
   background: linear-gradient(90deg, var(--axion-purple) 0%, var(--axion-orange) 100%);
   margin-bottom: 32px;
   border-radius: 2px;
+}
+
+/* Grid Responsivo */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
 }

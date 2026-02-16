@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💻 Frontend
 
-## Getting Started
+Aplicação web desenvolvida com Next.js (App Router) para o teste técnico da Axion. O projeto consome a API do Strapi e gerencia o acesso através de autenticação JWT.
 
-First, run the development server:
+## 🚀 Tecnologias Utilizadas
 
-```bash
+- Next.js (Framework React)
+- React (Biblioteca de UI)
+- CSS Modules (Estilização escopada e performática)
+- Axios (Cliente HTTP para comunicação com API)
+- Phosphor React (Biblioteca de ícones)
+- JS Cookie (Gerenciamento de tokens de segurança)
+
+## 📋 Pré-requisitos
+
+- Node.js (v18 ou superior)
+- O Backend (Strapi) deve estar rodando na porta 1337.
+
+## ⚙️ Instalação
+
+1. Acesse a pasta do projeto:
+   ```bash
+   cd frontend
+Instale as dependências:
+
+Bash
+npm install
+⚡ Como Rodar
+Para iniciar o servidor de desenvolvimento:
+
+Bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Acesse no navegador: http://localhost:3000
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Nota: Certifique-se de que o Backend está rodando (npm run develop na pasta backend), caso contrário o login falhará.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+🔐 Funcionalidades Implementadas
+1. Autenticação (Login)
+Integração com a rota /auth/local do Strapi.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Armazenamento de Token JWT em Cookies Seguros.
 
-## Learn More
+Redirecionamento automático após sucesso no login.
 
-To learn more about Next.js, take a look at the following resources:
+2. Proteção de Rotas (Middleware)
+O arquivo middleware.js protege as rotas do dashboard.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Se um usuário não autenticado tentar acessar /people, ele é redirecionado para o Login.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Se um usuário logado tentar acessar o Login, ele é redirecionado para o Dashboard.
 
-## Deploy on Vercel
+3. Dashboard Dinâmico
+Navbar: Identifica a rota ativa e destaca o link correspondente (People, Foods, Places).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Consumo de API: As páginas buscam dados reais do Strapi.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Logout: Funcionalidade para limpar a sessão e retornar ao início.
+
+🗂 Estrutura do Projeto
+Plaintext
+src/
+├── app/
+│   ├── (dashboard)/       # Rotas protegidas (com Navbar)
+│   │   ├── food/
+│   │   ├── people/
+│   │   └── places/
+│   ├── page.js            # Tela de Login (Pública)
+│   └── layout.js          # Layout raiz com AuthProvider
+├── components/            # Componentes reutilizáveis (Button, Card, Input)
+├── contexts/              # Lógica de Autenticação (AuthContext)
+└── services/              # Configuração do Axios (api.js)

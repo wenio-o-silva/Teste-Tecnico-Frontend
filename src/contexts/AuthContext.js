@@ -11,12 +11,11 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const router = useRouter();
 
-  // Ao carregar a página, verifica se tem token
+  // Verifica se ja tem token
   useEffect(() => {
     const token = Cookies.get('axion_token');
     
     if (token) {
-      // Se token for true, já está logado
       setUser({ name: 'Usuário Axion' }); 
     }
   }, []);
@@ -33,7 +32,6 @@ export function AuthProvider({ children }) {
       // expira em 1 dia
       Cookies.set('axion_token', jwt, { expires: 1 });
       
-      // Atualiza o estado
       setUser(user);
       router.push('/people'); 
 

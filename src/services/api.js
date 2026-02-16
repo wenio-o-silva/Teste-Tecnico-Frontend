@@ -3,13 +3,19 @@ import Cookies from 'js-cookie';
 
 const api = axios.create({
   baseURL: 'http://localhost:1337',
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+  },
 });
 
 api.interceptors.request.use((config) => {
   const token = Cookies.get('axion_token');
-  if (token) {
+  
+  if (token && !config.url.includes('/auth/local')) {
     config.headers.Authorization = `Bearer ${token}`;
   }
+  
   return config;
 });
 

@@ -1,123 +1,152 @@
 .container {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
   width: 100vw;
-  background-color: var(--white);
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10%;
+  
+  /* CAMINHO DA IMAGEM */
+  background-image: url('/assets/bg.jpg');
+  
+  /* AJUSTE DO ZOOM AQUI: */
+  /* Opção 1: '100% 100%' força a imagem a caber exatamente na largura e altura da tela */
+  background-size: 100% 100%; 
+  
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Cor de fundo para preencher caso a imagem demore a carregar */
+  background-color: #f5f5f5; 
 }
 
-/* Lado Esquerdo */
-.formSection {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  max-width: 500px;
-  background: var(--white);
-  box-shadow: 4px 0 16px rgba(0,0,0,0.05); /* Sombra leve separando */
-  z-index: 10;
-}
 
 .card {
+  background: #ffffff;
   width: 100%;
-  max-width: 320px;
+  max-width: 380px; /* Largura idêntica ao da foto */
+  padding: 40px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05); /* Sombra suave flutuante */
+  border-radius: 2px; /* Cantos levemente retos como na foto */
 }
 
 .logo {
   font-size: 24px;
-  letter-spacing: 4px;
   font-weight: 800;
   text-transform: uppercase;
-  margin-bottom: 2rem;
-  color: var(--axion-dark);
+  letter-spacing: 6px; /* Espaçamento entre letras característico */
+  color: #333;
+  margin-bottom: 32px;
 }
 
-.error {
-  color: red;
-  font-size: 12px;
-  margin-bottom: 1rem;
+.inputGroup {
+  margin-bottom: 20px;
 }
 
 .options {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
-  font-size: 12px;
-  color: var(--axion-gray);
+  margin-bottom: 24px;
 }
 
-.checkbox {
+.checkboxLabel {
   display: flex;
   align-items: center;
   gap: 8px;
+  font-size: 13px;
+  color: #888;
   cursor: pointer;
+}
+
+.checkbox {
+  accent-color: #888;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #ddd;
+}
+
+.error {
+  color: #dc2626;
+  font-size: 12px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+/* Ajuste fino para o seu componente Button ficar igual */
+.actionButton button {
+  background: linear-gradient(90deg, #b02492 0%, #dd5228 100%) !important; /* Gradiente Roxo -> Laranja */
+  border-radius: 4px;
+  height: 48px;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .forgot {
   font-size: 12px;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  color: var(--axion-dark);
-  cursor: pointer;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 24px;
+  margin-top: 16px;
 }
 
 .divider {
+  display: flex;
+  align-items: center;
   text-align: center;
-  margin: 1.5rem 0;
-  color: var(--axion-gray);
+  color: #999;
   font-size: 12px;
-  position: relative;
+  margin: 24px 0;
 }
 
-.divider::before, .divider::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 40%;
-  height: 1px;
-  background: #E0E0E0;
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e0e0e0;
 }
-.divider::before { left: 0; }
-.divider::after { right: 0; }
+
+.divider::before {
+  margin-right: 10px;
+}
+
+.divider::after {
+  margin-left: 10px;
+}
 
 .outlineButton {
   width: 100%;
   padding: 12px;
   background: transparent;
-  border: 1px solid #E0E0E0;
-  border-radius: var(--radius);
-  color: var(--axion-dark);
-  font-weight: bold;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #555;
+  font-weight: 600;
+  font-size: 14px;
   transition: all 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .outlineButton:hover {
-  background: #f5f5f5;
+  background: #f9f9f9;
+  border-color: #bbb;
 }
 
 .footer {
-  margin-top: 2rem;
-  font-size: 10px;
-  color: var(--axion-gray);
-  text-align: center;
+  margin-top: 32px;
+  font-size: 11px;
+  color: #aaa;
 }
 
-/* Lado Direito (Imagem) */
-.imageSection {
-  flex: 2;
-  background-color: #f0f0f0; /* Cor placeholder se faltar imagem */
-  background-image: url('/assets/bg-login.jpg'); /* Caminho da imagem */
-  background-size: cover;
-  background-position: center;
-}
-
-/* Mobile: Esconde a imagem */
+/* Responsividade para celular */
 @media (max-width: 768px) {
-  .imageSection {
-    display: none;
+  .container {
+    padding: 20px;
+    justify-content: center;
+    background-position: left; /* Ajusta imagem no mobile */
   }
-  .formSection {
+  
+  .card {
     max-width: 100%;
   }
 }
