@@ -1,11 +1,11 @@
 # 💻 Frontend
 
-Aplicação web desenvolvida com Next.js (App Router) para o teste técnico da Axion. O projeto consome a API do Strapi e gerencia o acesso através de autenticação JWT.
+Aplicação web desenvolvida com Next.js (App Router) para o teste técnico da O. O projeto consome a API do Strapi e gerencia o acesso através de autenticação JWT.
 
 ## 🚀 Tecnologias Utilizadas
 
 - Next.js (Framework React)
-- React (Biblioteca de UI)
+- React (Biblioteca JS)
 - CSS Modules (Estilização escopada e performática)
 - Axios (Cliente HTTP para comunicação com API)
 - Phosphor React (Biblioteca de ícones)
@@ -55,17 +55,3 @@ Navbar: Identifica a rota ativa e destaca o link correspondente (People, Foods, 
 Consumo de API: As páginas buscam dados reais do Strapi.
 
 Logout: Funcionalidade para limpar a sessão e retornar ao início.
-
-🗂 Estrutura do Projeto
-Plaintext
-src/
-├── app/
-│   ├── (dashboard)/       # Rotas protegidas (com Navbar)
-│   │   ├── food/
-│   │   ├── people/
-│   │   └── places/
-│   ├── page.js            # Tela de Login (Pública)
-│   └── layout.js          # Layout raiz com AuthProvider
-├── components/            # Componentes reutilizáveis (Button, Card, Input)
-├── contexts/              # Lógica de Autenticação (AuthContext)
-└── services/              # Configuração do Axios (api.js)
